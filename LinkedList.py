@@ -32,6 +32,18 @@ class Linked_List(object):
 			elements.append(current_node.data)
 		print elements
 
+	def get_data_at_an_index(self, index):
+		if index >= self.length():
+			print "ERROR: Index out of range."
+			return None
+		current_index = 0
+		current_node = self.head
+		while True:
+			current_node = current_node.next_node
+			if current_index is index:
+				return current_node.data
+			current_index += 1
+
 
 if __name__ == '__main__':
 	my_list = Linked_List()
@@ -41,3 +53,6 @@ if __name__ == '__main__':
 	my_list.append(3)
 
 	my_list.display()
+
+	print "Element at 2nd index: %d" % my_list.get_data_at_an_index(2)
+
