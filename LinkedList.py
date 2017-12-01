@@ -7,7 +7,6 @@ class Node(object):
 class Linked_List(object):
 	def __init__(self):
 		self.head = Node()
-		self.size = 0
 
 	def append(self, data):
 		new_node = Node(data)
