@@ -44,6 +44,20 @@ class Linked_List(object):
 				return current_node.data
 			current_index += 1
 
+	def remove_at_an_index(self, index):
+		if index >= self.length():
+			print "ERROR: Index out of range."
+			return
+		current_index = 0
+		current_node = self.head
+		while True:
+			previous_node = current_node
+			current_node = current_node.next_node
+			if current_index is index:
+				previous_node.next_node = current_node.next_node
+				return
+			current_index += 1
+
 
 if __name__ == '__main__':
 	my_list = Linked_List()
@@ -56,3 +70,6 @@ if __name__ == '__main__':
 
 	print "Element at 2nd index: %d" % my_list.get_data_at_an_index(2)
 
+	my_list.remove_at_an_index(2)
+	print "Element removed at index 2"
+	my_list.display()
